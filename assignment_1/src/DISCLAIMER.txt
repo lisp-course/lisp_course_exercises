@@ -1,0 +1,9 @@
+The Lisp code used in this package for the assignment
+(file "orc-battle.lisp") was taken from the website landoflisp.com.
+The exact license of the code is unknown.
+However, it is openly distributed, so it is assumed to be
+in the public domain. The author is supposedly Conrad Barsky.
+
+If you like the code you see in this package, consider visiting
+the Land of Lisp website: landoflisp.com and maybe even buying
+the book that explains how to write such a piece of code on your own.

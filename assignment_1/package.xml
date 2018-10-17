@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<package>
+  <name>assignment_1</name>
+  <version>0.0.0</version>
+  <description>The assignment_1 package</description>
+  <maintainer email="kazhoyan@cs.uni-bremen.de">Gayane Kazhoyan</maintainer>
+  <license>Public domain</license>
+  <buildtool_depend>catkin</buildtool_depend>
+</package>
