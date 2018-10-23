@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package>
+  <name>json_prolog_msgs</name>
+  <version>0.0.6</version>
+  <description>
+     Message definitions to talk with the JSON Prolog interface.
+  </description>
+
+  <maintainer email="georg.bartels@cs.uni-bremen.de">Georg Bartels</maintainer>
+
+  <license>BSD</license>
+
+  <author email="tenorth@cs.uni-bremen.de">Moritz Tenorth</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>message_generation</build_depend>
+  
+  <run_depend>message_runtime</run_depend>
+</package>
