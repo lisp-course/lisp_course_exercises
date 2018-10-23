@@ -1,0 +1,29 @@
+<package format="2">
+  <name>cram_semantic_map_costmap</name>
+  <version>0.7.0</version>
+  <description>
+    Semantic Map Costmap package
+  </description>
+
+  <author>Lorenz Moesenlechner</author>
+
+  <maintainer email="kazhoyan@cs.uni-bremen.de">Gayane Kazhoyan</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">http://cram-system.org</url>
+  <url type="bugtracker">https://github.com/cram2/cram_semantic_maps/issues</url>
+  <url type="repository">https://github.com/cram2/cram_semantic_maps</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>cl_transforms</depend>
+  <depend>cram_semantic_map_utils</depend>
+  <depend>cram_semantic_map_designators</depend>
+  <depend>cram_projection</depend>
+  <depend>cram_prolog</depend>
+  <depend>cram_location_costmap</depend>
+  <depend>alexandria</depend>
+  <depend>cram_semantic_map</depend>
+  <depend>cram_robot_interfaces</depend>
+</package>

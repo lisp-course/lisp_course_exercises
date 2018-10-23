@@ -1,0 +1,29 @@
+<package format="2">
+  <name>gsll</name>
+  <version>0.7.0</version>
+  <description>
+      3rd party library: GSLL a GNU Scientific Library (GSL) wrapper for common lisp
+  </description>
+
+  <author>Liam M. Healy</author>
+
+  <maintainer email="kazhoyan@cs.uni-bremen.de">Gayane Kazhoyan</maintainer>
+
+  <license>GPL</license>
+
+  <url type="website">http://common-lisp.net/project/gsll/</url>
+  <url type="bugtracker">https://github.com/cram2/cram_3rdparty/issues</url>
+  <url type="repository">https://github.com/cram2/cram_3rdparty</url>
+  <url type="repository">https://gitlab.common-lisp.net/antik/gsll.git</url>
+  <!--external-version>gsll-quicklisp-dd2e7673-git</external-version-->
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>libgsl</depend>
+  <depend>trivial_garbage</depend>
+  <depend>cffi</depend>
+  <depend>alexandria</depend>
+  <depend>metabang_bind</depend>
+  <depend>lisp_unit</depend>
+  <depend>trivial_features</depend>
+</package>
