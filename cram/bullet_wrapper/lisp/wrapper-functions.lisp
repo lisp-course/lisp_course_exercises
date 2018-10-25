@@ -56,7 +56,7 @@
   (case (alexandria:make-keyword type)
     ((:robot :r) (spawn-turtle x y name))
     ((:wall :w) (spawn-wall x y (intern (format nil "WALL~a-~a" x y))))
-    ((:treasure :t) (spawn-treasure x y (intern (format nil "TREASURE~a-~a" x y)) color))
+    ((:treasure :t :a :b :c :d :e :f) (spawn-treasure x y (intern (format nil "TREASURE~a-~a" x y)) color))
     (:depot (spawn-depot x y name color))
     (otherwise (warn "~a is no known object-type." type))))
     
@@ -93,7 +93,7 @@
                                                 (write-to-string (incf *treasure-id*)))))))
     (prolog:prolog `(and
                      (btr:bullet-world ?w)
-                     (assert (btr:object ?w :mesh ,treasure-name ((,x ,y 0) (0 0 0 1))
+                     (assert (btr:object ?w :mesh ,treasure-name ((,x ,y 1) (0 0 0 1))
                                          :mass 0.2 :color ,color-values :mesh :treasure))))))
 
 (defun spawn-depot (x y name color)
