@@ -1,0 +1,39 @@
+<package format="2">
+  <name>cram_bullet_reasoning</name>
+  <version>0.7.0</version>
+  <description>
+     cram_bullet_reasoning
+  </description>
+  <author>Lorenz Moesenlechner</author>
+  <maintainer email="kazhoyan@cs.uni-bremen.de">Gayane Kazhoyan</maintainer>
+  <license>BSD</license>
+
+  <url type="website">http://cram-system.org</url>
+  <url type="bugtracker">https://github.com/cram2/cram_3d_world/issues</url>
+  <url type="repository">https://github.com/cram2/cram_3d_world</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>alexandria</depend>
+  <depend>cram_prolog</depend>
+  <depend>cl_bullet</depend>
+  <depend>cl_bullet_vis</depend>
+  <depend>cl_urdf</depend>
+  <depend>cl_transforms_stamped</depend>
+  <depend>cl_transforms</depend>
+  <depend>roslisp</depend>
+  <depend>moveit_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>cram_location_costmap</depend>
+  <depend>cram_designators</depend>
+  <depend>roslisp_utilities</depend>
+  <depend>cram_semantic_map_utils</depend>
+  <depend>cram_object_interfaces</depend>
+  <depend>cram_robot_interfaces</depend>
+  <depend>cram_occasions_events</depend>
+  <depend>cram_utilities</depend>
+  <!-- <depend>cram_occasions_events</depend> -->
+  <depend>cram_tf</depend>
+  <depend>cram_physics_utils</depend>
+  <!-- <depend>household_objects_database_msgs</depend> -->
+</package>

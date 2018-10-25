@@ -1,0 +1,13 @@
+# Scoring methods
+string OSPT="ospt"
+string PSPT="pspt"
+string LPFO="lpfo"
+
+# Request fields
+string pattern
+Binding[] bindings
+string[] scoring_methods
+---
+# Response fields
+Plan[] plans
+string[] unused_bindings

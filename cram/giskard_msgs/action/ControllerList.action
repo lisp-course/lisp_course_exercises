@@ -1,0 +1,28 @@
+# goal message
+
+# definitions of possible values to use as type
+uint8 STANDARD_CONTROLLER=0
+uint8 YAML_CONTROLLER=1
+
+# use of the above constants to indicate the type of command
+uint8 type
+
+# list of controller specifications to run
+# will only be interpreted if type==STANDARD_CONTROLLER
+giskard_msgs/Controller[] controllers
+
+# YAML description of a controller to run
+# will only be interpreted if type==YAML_CONTROLLER
+string yaml
+---
+# result message
+
+# set to true iff generation and execution of all controllers was successful
+bool success
+# reports an message if unsuccessful, typically the message from an internal exception
+string error_message
+---
+# feedback message
+
+# value between 0.0 and 1.0 that reports progress towards achieving the controller goals
+float64 progress

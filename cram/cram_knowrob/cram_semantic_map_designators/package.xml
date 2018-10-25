@@ -1,0 +1,25 @@
+<package format="2">
+  <name>cram_semantic_map_designators</name>
+  <version>0.7.0</version>
+  <description>
+    Object Location Designators package
+  </description>
+
+  <author>Lorenz Moesenlechner</author>
+
+  <maintainer email="kazhoyan@cs.uni-bremen.de">Gayane Kazhoyan</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">http://cram-system.org</url>
+  <url type="bugtracker">https://github.com/cram2/cram/issues</url>
+  <url type="repository">https://github.com/cram2/cram</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>cram_semantic_map</depend>
+  <depend>cram_designators</depend>
+  <depend>cram_prolog</depend>
+  <depend>cram_semantic_map_utils</depend>
+  <depend>cram_utilities</depend>
+</package>

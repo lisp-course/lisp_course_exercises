@@ -1,0 +1,7 @@
+string speak
+geometry_msgs/PointStamped point_at
+bool get_pose
+bool get_heard
+---
+geometry_msgs/TransformStamped pepper_pose
+string[] heard
