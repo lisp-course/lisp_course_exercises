@@ -123,17 +123,17 @@
 
 ;; Lets handle the error and try to recover
 (cpl:top-level
-  (cpl:with-failure-handling
-      ((out-of-bounds-error (e)
-         (declare (ignore e))
-         (roslisp:ros-warn (ooberror) "Out of bounds!")
-         (send-vel-cmd -1 0)
-         (sleep 1)
-         (cpl:retry)))
-    (cpl:pursue
-      (cpl:whenever ((cpl:fl-funcall #'out-of-bounds *turtle-pose*))
-        (cpl:fail 'out-of-bounds-error)) ;; throws the error
-      (draw-circle))))
+ (cpl:with-failure-handling
+     ((out-of-bounds-error (e)
+       (declare (ignore e))
+       (roslisp:ros-warn (ooberror) "Out of bounds!")
+       (send-vel-cmd -1 0)
+       (sleep 1)
+       (cpl:retry)))
+   (cpl:pursue
+    (cpl:whenever ((cpl:fl-funcall #'out-of-bounds *turtle-pose*))
+                  (cpl:fail 'out-of-bounds-error)) ;; throws the error
+    (draw-circle))))
 
 ;; another example for whenever
 (cpl:par
@@ -176,3 +176,16 @@
     (print "all good")
     (print "some other stuff")))
 
+(cpl:top-level
+  (cpl:with-retry-counters ((my-counter 3))
+    (cpl:with-failure-handling
+
+      ((cpl:simple-plan-failure (e)
+         (print e)
+         (cpl:sleep 1.0)
+         (cpl:do-retry my-counter
+           (cpl:retry))
+         (return)))
+
+    (print "oh im failing")
+    (cpl:fail "here's a failure"))))
