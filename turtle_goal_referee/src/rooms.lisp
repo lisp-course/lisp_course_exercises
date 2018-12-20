@@ -73,4 +73,13 @@
       (7 . ,(cl-tf:make-pose 
               (cl-tf:make-3d-vector 1.0 3.0 0.0)
               (cl-tf:make-quaternion 0 0 1 1)))
+      (8 . ,(cl-tf:make-pose 
+              (cl-tf:make-3d-vector 5.0 12.0 0.0)
+              (cl-tf:make-quaternion 0 0 1 1)))
+      (9 . ,(cl-tf:make-pose 
+              (cl-tf:make-3d-vector -5.0 5.0 0.0)
+              (cl-tf:make-quaternion 0 0 1 1)))
+      (10 . ,(cl-tf:make-pose 
+              (cl-tf:make-3d-vector 5.0 -3.0 0.0)
+              (cl-tf:make-quaternion 0 0 1 1)))
       ))
