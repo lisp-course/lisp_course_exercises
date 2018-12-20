@@ -9,7 +9,8 @@
                        turtlesim-srv
                        cl-tf
                        roslisp-utilities
-                       alexandria)
+                       alexandria
+                       cram-language)
   :components
   ((:module "src"
             :components

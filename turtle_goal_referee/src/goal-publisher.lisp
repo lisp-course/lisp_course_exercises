@@ -3,7 +3,6 @@
 ;; (defparameter *marker-publisher* nil)
 ;; (defparameter *transform-publisher* nil)
 (defparameter *transform-listener* nil)
-(defparameter *frame-id* "world")
 (defparameter *reached-goals* nil)
 
 (defparameter *active-goal-transforms* (copy-alist +rooms-list+))
@@ -32,20 +31,39 @@
   (with-ros-node ("referee")
     (get-transform-listener)
     (sleep 1) ;; give the listener some time
-    (let ((active-goals-tmp (copy-alist *active-goal-transforms*)))
+    (let ((active-goals-tmp (copy-alist *active-goal-transforms*))
+          (treasures-in-trunk 0))
       (loop-at-most-every 0.51
         (cl-tf::with-tf-broadcasting-list ((make-transform-broadcaster)
-                                           (rooms->transforms *active-goal-transforms*))
+                                           (append (rooms->transforms *active-goal-transforms*)
+                                                   `(,*depot-transform*)))
           (sleep 0.3) ;; wait for updated tf
-          (setf active-goals-tmp
-                (remove-if (lambda (room)
-                             (let ((transform (lookup-transform (get-transform-listener)
-                                                                "turtle1"
-                                                                (format nil "goal_~a" (car room)))))
-                               (< (v-dist (translation transform) (make-3d-vector 0 0 0)) 1)))
-                           active-goals-tmp))
-          (sleep 0.2)) ;; wait for safety
-        (setf *active-goal-transforms* (copy-alist active-goals-tmp))))))
+
+          (when (< treasures-in-trunk 2)
+              (loop for room in *active-goal-transforms*
+                    for transform = (lookup-transform (get-transform-listener)
+                                                      "turtle1"
+                                                      (format nil "goal_~a" (car room)))
+                    when (and (< treasures-in-trunk 2)
+                              (< (v-dist (translation transform) (make-3d-vector 0 0 0)) 1)
+                              (< (angle-between-quaternions (rotation transform)
+                                                            (make-identity-rotation)) (/ pi 4)))
+                      do (ros-info found "Goal ~a found." (car room))
+                         (setf active-goals-tmp
+                               (remove (assoc (car room) active-goals-tmp) active-goals-tmp))
+                         (when (> (incf treasures-in-trunk) 1)
+                           (ros-info full "Trunk is full."))))
+
+          (when (> treasures-in-trunk 0)
+            (let ((transform (lookup-transform (get-transform-listener)
+                                               "turtle1"
+                                               "goal_depot")))
+              (when (< (v-dist (translation transform) (make-3d-vector 0 0 0)) 1)
+                (ros-info depot "Unloading all treasures.")
+                (setf treasures-in-trunk 0))))
+                  
+            (sleep 0.2)) ;; wait for safety
+          (setf *active-goal-transforms* (copy-alist active-goals-tmp))))))
 
 ;; (defun get-marker-publisher ()
 ;;   (unless *marker-publisher*
