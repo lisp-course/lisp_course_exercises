@@ -1,16 +1,20 @@
 (in-package turtleref)
 
 ;; (defparameter *marker-publisher* nil)
-;; (defparameter *transform-publisher* nil)
 (defparameter *transform-listener* nil)
 (defparameter *reached-goals* nil)
 
 (defparameter *active-goal-transforms* (copy-alist +rooms-list+))
 
+(defun init ()
+  (setf *active-goal-transforms* (copy-alist +rooms-list+))
+  (setf *transform-listener* nil)
+  (setf *reached-goals* nil)
+  (kill-tf-listener))
+  
+
 (defun kill-tf-listener ()
   (setf *transform-listener* nil))
-
-;;(roslisp-utilities:register-ros-cleanup-function kill-tf-listener)
 
 (defun get-transform-listener ()
   (unless *transform-listener*
@@ -26,11 +30,37 @@
              (cl-tf:pose->transform (cdr pose))))
           rooms))
 
+(defun publish-goal-collect (goal-name)
+  (unless (eq (roslisp:node-status) :RUNNING)
+    (roslisp:start-ros-node "publisher"))
+  (let ((publisher (roslisp:advertise "goal_picked_up" "std_msgs/String")))
+    (publish publisher (make-msg "std_msgs/String" data goal-name))))
+
+(defun example-subscriber ()
+  (unless (eq (roslisp:node-status) :RUNNING)
+    (roslisp:start-ros-node "subscriber"))
+  (subscribe "goal_picked_up" "std_msgs/String" 
+             (lambda (msg) 
+               (roslisp:with-fields (data) msg
+                 (roslisp:ros-info goal-sub "Yeah, the treasure ~a was collected!" data)))))
+
 (defun referee ()
   (kill-tf-listener)
   (with-ros-node ("referee")
     (get-transform-listener)
-    (sleep 1) ;; give the listener some time
+    (sleep 1) 
+
+    ;; ensure the robot is published before continue
+    (loop until (handler-case 
+                    (when (lookup-transform (get-transform-listener)
+                                             "base_footprint"
+                                             *frame-id*
+                                             :time (roslisp:ros-time)
+                                             :timeout 2)
+                           (roslisp:ros-info referee "Robot's /base_footprint found!") T)
+                  (cl-tf:timeout-error ()
+                    (roslisp:ros-warn referee "Waiting for robot to be published on TF.") NIL)))
+
     (let ((active-goals-tmp (copy-alist *active-goal-transforms*))
           (treasures-in-trunk 0))
       (loop-at-most-every 0.51
@@ -38,25 +68,27 @@
                                            (append (rooms->transforms *active-goal-transforms*)
                                                    `(,*depot-transform*)))
           (sleep 0.3) ;; wait for updated tf
-
+          ;; loop through goal tf-frames and stop publishing, when base_footprint is nearby
           (when (< treasures-in-trunk 2)
               (loop for room in *active-goal-transforms*
                     for transform = (lookup-transform (get-transform-listener)
-                                                      "turtle1"
+                                                      "base_footprint"
                                                       (format nil "goal_~a" (car room)))
                     when (and (< treasures-in-trunk 2)
                               (< (v-dist (translation transform) (make-3d-vector 0 0 0)) 1)
                               (< (angle-between-quaternions (rotation transform)
                                                             (make-identity-rotation)) (/ pi 4)))
                       do (ros-info found "Goal ~a found." (car room))
+                         (publish-goal-collect (format nil "goal_~a" (car room)))
                          (setf active-goals-tmp
                                (remove (assoc (car room) active-goals-tmp) active-goals-tmp))
                          (when (> (incf treasures-in-trunk) 1)
                            (ros-info full "Trunk is full."))))
 
+          ;; clear counter, when nearby the depot
           (when (> treasures-in-trunk 0)
             (let ((transform (lookup-transform (get-transform-listener)
-                                               "turtle1"
+                                               "base_footprint"
                                                "goal_depot")))
               (when (< (v-dist (translation transform) (make-3d-vector 0 0 0)) 1)
                 (ros-info depot "Unloading all treasures.")
