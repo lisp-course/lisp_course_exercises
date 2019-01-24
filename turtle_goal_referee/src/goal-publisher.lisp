@@ -48,8 +48,8 @@
   (kill-tf-listener)
   (with-ros-node ("referee")
     (get-transform-listener)
+    (publish-goal-collect "test_init") ;; initialize publisher
     (sleep 1) 
-
     ;; ensure the robot is published before continue
     (loop until (handler-case 
                     (when (lookup-transform (get-transform-listener)
@@ -60,7 +60,6 @@
                            (roslisp:ros-info referee "Robot's /base_footprint found!") T)
                   (cl-tf:timeout-error ()
                     (roslisp:ros-warn referee "Waiting for robot to be published on TF.") NIL)))
-
     (let ((active-goals-tmp (copy-alist *active-goal-transforms*))
           (treasures-in-trunk 0))
       (loop-at-most-every 0.51
@@ -96,6 +95,24 @@
                   
             (sleep 0.2)) ;; wait for safety
           (setf *active-goal-transforms* (copy-alist active-goals-tmp))))))
+
+(defun referee-demo ()
+  (let ((trash `((trash1 . ,(cl-tf:make-pose
+                             (cl-tf:make-3d-vector 0.824278354645 -5.60038948059 0.00247192382812)
+                             (cl-tf:axis-angle->quaternion (cl-tf:make-3d-vector 0 0 1) (/ (- pi) 2))))
+                 (trash2 . ,(cl-tf:make-pose
+                             (cl-tf:make-3d-vector 0.824278354645 -2.13942718506 0.00247192382812)
+                             (cl-tf:axis-angle->quaternion (cl-tf:make-3d-vector 0 0 1) (/ (- pi) 2))))
+                 (trash3 . ,(cl-tf:make-pose
+                             (cl-tf:make-3d-vector 3.69784045219 1.37294614315 0.00247192382812)
+                             (cl-tf:make-identity-rotation)))
+                 (trash4 . ,(cl-tf:make-pose
+                             (cl-tf:make-3d-vector 7.37604141235 1.37294614315 0.00247192382812)
+                             (cl-tf:make-identity-rotation))))))
+    (setf *active-goal-transforms*
+          (append (subseq (alexandria:shuffle +rooms-list+) 0 5)
+                  trash))
+    (referee)))
 
 ;; (defun get-marker-publisher ()
 ;;   (unless *marker-publisher*

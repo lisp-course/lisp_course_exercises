@@ -123,6 +123,7 @@ include_directories(
 )
 
 add_lisp_executable(referee turtle-goal-referee turtle-goal-referee:referee)
+add_lisp_executable(referee-demo turtle-goal-referee turtle-goal-referee:referee-demo)
 
 
 ## Declare a C++ library

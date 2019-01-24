@@ -3,4 +3,5 @@
 (defpackage turtle-goal-referee
   (:nicknames :turtleref)
   (:use :cl :roslisp :cl-tf)
-  (:export :referee))
+  (:export :referee
+           :referee-demo))
