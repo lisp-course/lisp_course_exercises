@@ -60,19 +60,25 @@
                            (roslisp:ros-info referee "Robot's /base_footprint found!") T)
                   (cl-tf:timeout-error ()
                     (roslisp:ros-warn referee "Waiting for robot to be published on TF.") NIL)))
+
+    
     (let ((active-goals-tmp (copy-alist *active-goal-transforms*))
-          (treasures-in-trunk 0))
+          (treasures-in-trunk 0)
+          (tf-broadcaster (make-transform-broadcaster)))
       (loop-at-most-every 0.51
-        (cl-tf::with-tf-broadcasting-list ((make-transform-broadcaster)
+        (cl-tf::with-tf-broadcasting-list (tf-broadcaster
                                            (append (rooms->transforms *active-goal-transforms*)
                                                    `(,*depot-transform*)))
-          (sleep 0.3) ;; wait for updated tf
+          
+          (sleep 0.3)
+           ;; wait for updated tf
           ;; loop through goal tf-frames and stop publishing, when base_footprint is nearby
           (when (< treasures-in-trunk 2)
               (loop for room in *active-goal-transforms*
                     for transform = (lookup-transform (get-transform-listener)
                                                       "base_footprint"
-                                                      (format nil "goal_~a" (car room)))
+                                                      (format nil "goal_~a" (car room))
+                                                      :timeout 1)
                     when (and (< treasures-in-trunk 2)
                               (< (v-dist (translation transform) (make-3d-vector 0 0 0)) 1)
                               (< (angle-between-quaternions (rotation transform)
@@ -88,7 +94,8 @@
           (when (> treasures-in-trunk 0)
             (let ((transform (lookup-transform (get-transform-listener)
                                                "base_footprint"
-                                               "goal_depot")))
+                                               "goal_depot"
+                                               :timeout 1)))
               (when (< (v-dist (translation transform) (make-3d-vector 0 0 0)) 1)
                 (ros-info depot "Unloading all treasures.")
                 (setf treasures-in-trunk 0))))
@@ -97,16 +104,16 @@
           (setf *active-goal-transforms* (copy-alist active-goals-tmp))))))
 
 (defun referee-demo ()
-  (let ((trash `((trash1 . ,(cl-tf:make-pose
+  (let ((trash `((11 . ,(cl-tf:make-pose
                              (cl-tf:make-3d-vector 0.824278354645 -5.60038948059 0.00247192382812)
                              (cl-tf:axis-angle->quaternion (cl-tf:make-3d-vector 0 0 1) (/ (- pi) 2))))
-                 (trash2 . ,(cl-tf:make-pose
+                 (22 . ,(cl-tf:make-pose
                              (cl-tf:make-3d-vector 0.824278354645 -2.13942718506 0.00247192382812)
                              (cl-tf:axis-angle->quaternion (cl-tf:make-3d-vector 0 0 1) (/ (- pi) 2))))
-                 (trash3 . ,(cl-tf:make-pose
+                 (33 . ,(cl-tf:make-pose
                              (cl-tf:make-3d-vector 3.69784045219 1.37294614315 0.00247192382812)
                              (cl-tf:make-identity-rotation)))
-                 (trash4 . ,(cl-tf:make-pose
+                 (44 . ,(cl-tf:make-pose
                              (cl-tf:make-3d-vector 7.37604141235 1.37294614315 0.00247192382812)
                              (cl-tf:make-identity-rotation))))))
     (setf *active-goal-transforms*
