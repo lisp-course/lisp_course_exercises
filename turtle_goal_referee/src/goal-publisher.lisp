@@ -63,7 +63,7 @@
   (init)
   ;; ensure the robot is published before continue
   (loop until (handler-case
-                  (when (lookup-transform (get-transform-listener)
+                  (when (lookup-transform *transform-listener*
                                           "base_footprint"
                                           *frame-id*
                                           :time (roslisp:ros-time)
