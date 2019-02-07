@@ -16,58 +16,35 @@
 (defvar *turtle-pose* (cpl:make-fluent :name :turtle-pose) "current pose of turtle")
 (defparameter *pose-sub* nil) ;; pose subscriber
 
-<<<<<<< HEAD
 (defun pose-cb (msg)
   "Callback for pose values. Called by the pose topic subscriber."
   (setf (cpl:value *turtle-pose*) msg))
 
-=======
->>>>>>> e8e2ea5294964697b80ad55521d4ccf3c3c48755
 (defun init ()
   (setf *pose-sub*
         (roslisp:subscribe "turtle1/pose"
                            "turtlesim/Pose"
                            #'pose-cb)))
-<<<<<<< HEAD
 ; (roslisp:start-ros-node "lisp_node")
 (init)
 ;; Each message on the pose topic executes 'pose-cb with the message as parameter
-=======
-;; Each message on the pose topic executes 'pose-cb with the message as parameter
-(defun pose-cb (msg)
-  "Callback for pose values. Called by the pose topic subscriber."
-  (setf (cpl:value *turtle-pose*) msg))
->>>>>>> e8e2ea5294964697b80ad55521d4ccf3c3c48755
 ;; *turtle-pose* is now a fluent variable after calling the init function
 
 ;; Use fluent values with 'fl-funcall and 'value
 
 ;; get values
-<<<<<<< HEAD
 (cpl:value *turtle-pose*)
 
 ;; call function on fluent
 ;; e.g. get x-value from the pose
 (cpl:fl-funcall #'turtlesim-msg:x *turtle-pose*)
-=======
-(value *turtle-pose*)
-
-;; call function on fluent
-;; e.g. get x-value from the pose
-(fl-funcall #'turtlesim-msg:x *turtle-pose*)
->>>>>>> e8e2ea5294964697b80ad55521d4ccf3c3c48755
 ;; turtlesim-msg:x is the getter for the x value
 ;; on a normal Pose message you would just call (turtlesim-msg:x pose)
 ;; here you apply the getter on the fluent object, to get the x as another fluent 
 
 ;; react to the values in a fluent with 'wait-for
-<<<<<<< HEAD
 (cpl:wait-for (cpl:< (cpl:fl-funcall #'turtlesim-msg:x *turtle-pose*)
                      5.0))
-=======
-(wait-for (< (fl-funcall #'turtlesim-msg:x *turtle-pose*)
-             5.0))
->>>>>>> e8e2ea5294964697b80ad55521d4ccf3c3c48755
 ;; blocks the current process until the turtle's x is smaller that 5
 
 ;; Create a command publisher for the turtle
