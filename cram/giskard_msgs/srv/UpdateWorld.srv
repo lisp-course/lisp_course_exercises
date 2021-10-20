@@ -19,6 +19,10 @@ uint8 ALTER=3
 # the world body specified in the body field of the request.
 uint8 REMOVE_ALL=4
 
+# detach object from robot and spawn it into the world.
+# everything but the name in body is being ignored
+uint8 DETACH=5
+
 # Type of operation that shall be performed on the world representation
 uint8 operation
 

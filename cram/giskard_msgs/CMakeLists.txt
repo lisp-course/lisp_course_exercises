@@ -15,36 +15,21 @@ set(MSG_DEPS
 )
 
 set(MSG_FILES
-  ArmCommand.msg
   CollisionEntry.msg
   Constraint.msg
-  ControllerFeedback.msg
+  JointConstraint.msg
+  CartesianConstraint.msg
   Controller.msg
-  Dummy.msg
-  Finished.msg
-  MotionPhase.msg
-  MoveCmd.msg
-  SemanticBool.msg
-  SemanticFloat64.msg
-  SemanticFloat64Array.msg
-  SemanticVector3.msg
-  Task.msg
-  TaskObject.msg
-  WholeBodyCommand.msg
-  WholeBodyState.msg
   WorldBody.msg
+  MoveCmd.msg
  )
 
 set(SRV_FILES
-  QueryMotion.srv
-  SetEnable.srv
   UpdateWorld.srv
 )
 
 set(ACT_FILES
-  ControllerList.action
   Move.action
-  WholeBody.action
 )
 
 find_package(catkin REQUIRED COMPONENTS

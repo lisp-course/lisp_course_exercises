@@ -1,6 +1,4 @@
 # a string identifying the expression behind the constraint
-string name
+string type
 
-# desired lower and upper boundaries that shall be enforced
-float64 lower
-float64 upper
+string parameter_value_pair # json

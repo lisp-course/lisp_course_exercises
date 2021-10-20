@@ -14,14 +14,14 @@ giskard_msgs/MoveCmd[] cmd_seq
 # result
 # definition of possible error code values
 uint8 SUCCESS=0
-uint8 INSOLVABLE=1
-uint8 PATH_COLLISION=2
-uint8 START_STATE_COLLISION=3
-uint8 END_STATE_COLLISION=4
-uint8 SOLVER_TIMEOUT=5
-uint8 INTERRUPTED=6
+uint8 INSOLVABLE=1 # usually means that giskard thinks that the robot is out of joint limits
+uint8 PATH_COLLISION=2 # not implemented
+uint8 START_STATE_COLLISION=3 # not implemented
+uint8 END_STATE_COLLISION=4 # not implemented
+uint8 SOLVER_TIMEOUT=5 # not implemented
+uint8 INTERRUPTED=6 # goal got cancled via action server interface
 uint8 MAX_NWSR_REACHED=7 # increasing NWSR might fix this
-uint8 QP_SOLVER_ERROR=8
+uint8 QP_SOLVER_ERROR=8 # delete your robot folger in giskardpy/data and try again
 uint8 UNKNOWN_OBJECT=9
 uint8 SYMENGINE_ERROR=10
 
