@@ -1,4 +1,0 @@
-@defvr {Constant} {grid:+foreign-pointer-type+}
-@vindex grid:+foreign-pointer-type+
-The type of foreign pointers.
-@end defvr

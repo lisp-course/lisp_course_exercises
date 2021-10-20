@@ -1,4 +1,0 @@
-@defvr {Variable} {antik:*use-readable-print-form*}
-@vindex antik:*use-readable-print-form*
-Use the readable print form in creation-form if available.
-@end defvr

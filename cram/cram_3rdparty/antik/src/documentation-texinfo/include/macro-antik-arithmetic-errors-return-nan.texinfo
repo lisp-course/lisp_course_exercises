@@ -1,4 +1,0 @@
-@deffn {Macro} {antik:arithmetic-errors-return-nan} @&body body
-@findex antik:arithmetic-errors-return-nan
-Return a NaN for a variety of arithmetic errors.
-@end deffn

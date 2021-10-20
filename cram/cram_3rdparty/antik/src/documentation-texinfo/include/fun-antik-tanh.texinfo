@@ -1,4 +1,0 @@
-@deffn {Generic Function} {antik:tanh} num
-@findex antik:tanh
-The hyperbolic tangent of the generalized or regular number.
-@end deffn

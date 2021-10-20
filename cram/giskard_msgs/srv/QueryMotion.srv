@@ -1,5 +1,0 @@
-# request
-giskard_msgs/Task task
----
-# response
-giskard_msgs/MotionPhase[] phases

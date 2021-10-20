@@ -1,4 +1,0 @@
-@deffn {Macro} {antik:print-name} unit
-@findex antik:print-name
-How a unit is printed.
-@end deffn

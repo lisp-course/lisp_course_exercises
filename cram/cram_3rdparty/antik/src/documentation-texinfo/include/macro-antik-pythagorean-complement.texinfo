@@ -1,4 +1,0 @@
-@deffn {Macro} {antik:pythagorean-complement} x
-@findex antik:pythagorean-complement
-sqrt(1-x^2)
-@end deffn

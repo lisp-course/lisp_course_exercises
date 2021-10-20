@@ -1,4 +1,0 @@
-@deffn {Generic Function} {grid:specification} grid
-@findex grid:specification
-The grid specification.
-@end deffn

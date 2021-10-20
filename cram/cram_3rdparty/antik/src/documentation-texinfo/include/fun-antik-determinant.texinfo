@@ -1,4 +1,0 @@
-@deffn {Function} {antik:determinant} matrix
-@findex antik:determinant
-Find the determinant of the matrix.
-@end deffn

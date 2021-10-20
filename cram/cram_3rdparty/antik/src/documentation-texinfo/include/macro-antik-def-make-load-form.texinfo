@@ -1,4 +1,0 @@
-@deffn {Macro} {antik:def-make-load-form} object-type
-@findex antik:def-make-load-form
-Defmethod the make-load-form assuming creation-form exists.
-@end deffn

@@ -1,4 +1,0 @@
-@deffn {Function} {antik:sqrt} num
-@findex antik:sqrt
-The square root of the generalized or regular number.
-@end deffn

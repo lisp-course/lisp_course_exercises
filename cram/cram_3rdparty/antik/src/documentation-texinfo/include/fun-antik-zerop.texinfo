@@ -1,4 +1,0 @@
-@deffn {Generic Function} {antik:zerop} a
-@findex antik:zerop
-Zero.
-@end deffn

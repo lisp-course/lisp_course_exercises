@@ -1,7 +1,0 @@
-string model
-string joint
----
-bool success
-float32 position
-float32 min
-float32 max

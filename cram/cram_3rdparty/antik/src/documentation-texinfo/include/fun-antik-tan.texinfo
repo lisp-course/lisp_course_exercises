@@ -1,4 +1,0 @@
-@deffn {Generic Function} {antik:tan} num
-@findex antik:tan
-The tangent of the generalized or regular number.
-@end deffn

@@ -1,4 +1,0 @@
-@deffn {Macro} {antik:set-nf-options} @&rest name-values
-@findex antik:set-nf-options
-Set the numerical formatting options.
-@end deffn

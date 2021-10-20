@@ -1,4 +1,0 @@
-@deffn {Generic Function} {(setf grid:aref)}
-@findex (setf grid:aref)
-Set the element from the grid.
-@end deffn

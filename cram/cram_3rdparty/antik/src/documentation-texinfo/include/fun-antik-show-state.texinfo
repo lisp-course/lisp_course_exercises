@@ -1,4 +1,0 @@
-@deffn {Generic Function} {antik:show-state} state
-@findex antik:show-state
-Show the physical state attributes.
-@end deffn

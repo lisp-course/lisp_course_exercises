@@ -1,4 +1,0 @@
-@deffn {Function} {grid:row} grid index @&optional destination
-@findex grid:row
-The subgrid with the first index set to the specified value.
-@end deffn

@@ -1,4 +1,0 @@
-@deffn {Macro} {antik:define-derived-system-of-units} system-name units-or-system base-system @&optional docstring
-@findex antik:define-derived-system-of-units
-Make a system of units with the given name and units.
-@end deffn

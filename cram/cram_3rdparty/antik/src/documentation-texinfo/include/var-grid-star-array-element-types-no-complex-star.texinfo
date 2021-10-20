@@ -1,4 +1,0 @@
-@defvr {Variable} {grid:*array-element-types-no-complex*}
-@vindex grid:*array-element-types-no-complex*
-All the array element types supported except for complex types.
-@end defvr

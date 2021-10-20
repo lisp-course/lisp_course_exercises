@@ -1,4 +1,0 @@
-@defvr {Variable} {antik:*siu*}
-@vindex antik:*siu*
-Systeme internationale system of units.
-@end defvr

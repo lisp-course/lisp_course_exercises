@@ -1,4 +1,0 @@
-@deffn {Generic Function} {antik:minusp} a
-@findex antik:minusp
-Negative
-@end deffn

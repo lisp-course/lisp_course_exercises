@@ -1,4 +1,0 @@
-@deffn {Function} {antik:prime-factors} n
-@findex antik:prime-factors
-Find the prime factors of the integer n.
-@end deffn

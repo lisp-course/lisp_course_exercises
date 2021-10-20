@@ -1,4 +1,0 @@
-@deffn {Generic Function} {antik:creation-form} object
-@findex antik:creation-form
-A form that creates the object.
-@end deffn

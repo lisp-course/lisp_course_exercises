@@ -1,4 +1,0 @@
-@deffn {Macro} {antik:components} name
-@findex antik:components
-Components of vector.
-@end deffn

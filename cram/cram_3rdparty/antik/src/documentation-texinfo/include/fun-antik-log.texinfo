@@ -1,4 +1,0 @@
-@deffn {Generic Function} {antik:log} num @&optional base
-@findex antik:log
-The natural logarithm of the generalized or regular number.
-@end deffn

@@ -1,8 +1,0 @@
-# goal
-giskard_msgs/WholeBodyCommand command
----
-# result
-giskard_msgs/WholeBodyState state
----
-# feedback
-giskard_msgs/WholeBodyState state

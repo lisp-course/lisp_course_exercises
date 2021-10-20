@@ -1,4 +1,0 @@
-@deffn {Generic Function} {antik:sin} num
-@findex antik:sin
-The sine of the generalized or regular number.
-@end deffn

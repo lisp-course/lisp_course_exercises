@@ -1,4 +1,0 @@
-@deffn {Function} {antik:write-dms} angle @&optional stream first-sep second-sep final
-@findex antik:write-dms
-Write the angle as degrees, minutes, seconds.
-@end deffn

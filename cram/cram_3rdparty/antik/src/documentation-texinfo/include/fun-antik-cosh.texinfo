@@ -1,4 +1,0 @@
-@deffn {Generic Function} {antik:cosh} num
-@findex antik:cosh
-The hyperbolic cosine of the generalized or regular number.
-@end deffn

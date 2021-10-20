@@ -1,4 +1,0 @@
-@defvr {Variable} {grid:*float-types*}
-@vindex grid:*float-types*
-All the float array element types.
-@end defvr

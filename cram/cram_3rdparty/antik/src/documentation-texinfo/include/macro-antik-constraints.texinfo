@@ -1,4 +1,0 @@
-@deffn {Macro} {antik:constraints} name
-@findex antik:constraints
-Constraint on acceptable values.
-@end deffn

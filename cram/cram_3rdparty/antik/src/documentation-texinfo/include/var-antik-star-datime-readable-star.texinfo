@@ -1,4 +1,0 @@
-@defvr {Variable} {antik:*datime-readable*}
-@vindex antik:*datime-readable*
-Whether to print datimes readably.
-@end defvr

@@ -1,4 +1,0 @@
-@defvr {Variable} {grid:*float-complex-types*}
-@vindex grid:*float-complex-types*
-All the float or complex array element types supported.
-@end defvr

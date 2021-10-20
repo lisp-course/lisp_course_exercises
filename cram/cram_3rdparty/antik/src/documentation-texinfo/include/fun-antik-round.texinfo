@@ -1,4 +1,0 @@
-@deffn {Generic Function} {antik:round} number @&optional divisor
-@findex antik:round
-Nearest multiple of divisor to number.
-@end deffn

@@ -1,4 +1,0 @@
-@deffn {Generic Function} {antik:sinh} num
-@findex antik:sinh
-The hyperbolic sine of the generalized or regular number.
-@end deffn

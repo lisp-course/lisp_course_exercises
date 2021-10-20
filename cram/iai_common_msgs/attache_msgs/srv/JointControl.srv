@@ -1,6 +1,0 @@
-string model
-string joint
-float32 position
-bool hold_position
----
-bool success

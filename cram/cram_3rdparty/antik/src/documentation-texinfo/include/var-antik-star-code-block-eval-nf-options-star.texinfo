@@ -1,4 +1,0 @@
-@defvr {Variable} {antik:*code-block-eval-nf-options*}
-@vindex antik:*code-block-eval-nf-options*
-@code{nf} options for LaTeX output generated from parameters.
-@end defvr

@@ -1,4 +1,0 @@
-@defvr {Variable} {antik:*zero-is-dimensionless*}
-@vindex antik:*zero-is-dimensionless*
-Numbers with zero magnitude are made dimensionless.
-@end defvr

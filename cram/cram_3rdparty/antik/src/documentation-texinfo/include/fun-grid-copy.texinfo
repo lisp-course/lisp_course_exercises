@@ -1,4 +1,0 @@
-@deffn {Generic Function} {grid:copy} object @&key specification grid-type dimensions element-type destination
-@findex grid:copy
-Copy contents into existing or new object.
-@end deffn

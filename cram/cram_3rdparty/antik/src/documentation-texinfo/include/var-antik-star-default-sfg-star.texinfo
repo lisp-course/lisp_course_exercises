@@ -1,4 +1,0 @@
-@defvr {Variable} {antik:*default-sfg*}
-@vindex antik:*default-sfg*
-The default state function generator.
-@end defvr
