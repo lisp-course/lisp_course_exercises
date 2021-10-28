@@ -1,0 +1,24 @@
+<package format="2">
+  <name>cram_process_modules</name>
+  <version>0.7.0</version>
+  <description>
+    A common interface definition for lower level control routines.
+  </description>
+  <author>Lorenz Moesenlechner</author>
+  <maintainer email="kazhoyan@cs.uni-bremen.de">Gayane Kazhoyan</maintainer>
+  <license>BSD</license>
+
+  <url type="website">http://cram-system.org</url>
+  <url type="bugtracker">https://github.com/cram2/cram_core/issues</url>
+  <url type="repository">https://github.com/cram2/cram_core</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>alexandria</depend>
+  <depend>cram_designators</depend>
+  <depend>cram_language</depend>
+  <depend>cram_prolog</depend>
+  <depend>cram_utilities</depend>
+
+  <test_depend>lisp_unit</test_depend>
+</package>

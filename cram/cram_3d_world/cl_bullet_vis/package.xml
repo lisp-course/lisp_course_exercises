@@ -1,0 +1,28 @@
+<package format="2">
+  <name>cl_bullet_vis</name>
+  <version>0.7.0</version>
+  <description>
+     cl_bullet_vis
+  </description>
+  <author>Lorenz Moesenlechner</author>
+  <maintainer email="kazhoyan@cs.uni-bremen.de">Gayane Kazhoyan</maintainer>
+  <license>BSD</license>
+
+  <url type="website">http://cram-system.org</url>
+  <url type="bugtracker">https://github.com/cram2/cram_3d_world/issues</url>
+  <url type="repository">https://github.com/cram2/cram_3d_world</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>cl_bullet</depend>
+  <depend>cram_physics_utils</depend>
+  <depend>cl_opengl</depend>
+  <depend>cl_transforms</depend>
+  <depend>cl_glx</depend>
+  <depend>trivial_garbage</depend>
+  <depend>alexandria</depend>
+
+  <test_depend>lisp_unit</test_depend>
+</package>
+
+

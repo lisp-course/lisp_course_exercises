@@ -1,0 +1,12 @@
+#request constants
+int8 ADD=1
+int8 REMOVE=2
+#request fields
+int8 action
+#xml to add to the urdf
+string xml_elements_to_add
+#names of the joint and links to remove from the urdf
+string[] element_names_to_remove
+---
+#response fields
+bool success

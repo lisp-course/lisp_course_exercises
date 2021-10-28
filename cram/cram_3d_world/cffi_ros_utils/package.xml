@@ -1,0 +1,21 @@
+<package format="2">
+  <name>cffi_ros_utils</name>
+  <version>0.7.0</version>
+  <description>
+    ROS related CFFI interface
+  </description>
+
+  <author email="moesenle@cs.tum.edu">Lorenz Moesenlechner</author>
+  <maintainer email="kazhoyan@cs.uni-bremen.de">Gayane Kazhoyan</maintainer>
+  <license>BSD</license>
+
+  <url type="website">http://cram-system.org</url>
+  <url type="bugtracker">https://github.com/cram2/cram_3d_world/issues</url>
+  <url type="repository">https://github.com/cram2/cram_3d_world</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>cffi</depend>
+  <depend>split_sequence</depend>
+  <depend>roslisp</depend>
+</package>
