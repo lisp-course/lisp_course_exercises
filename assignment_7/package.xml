@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package>
+  <name>assignment_7</name>
+  <version>0.0.0</version>
+  <description>assignment_7</description>
+  <maintainer email="aniedz@cs.uni-bremen.de">Arthur Niedzwiecki</maintainer>
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>roslisp</build_depend>
+  <build_depend>actionlib_lisp</build_depend>
+  <build_depend>actionlib_msgs</build_depend>
+  <build_depend>turtle_actionlib</build_depend>
+  <build_depend>turtlesim</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>cl_tf</build_depend>
+
+  <run_depend>roslisp</run_depend>
+  <run_depend>actionlib_lisp</run_depend>
+  <run_depend>actionlib_msgs</run_depend>
+  <run_depend>turtle_actionlib</run_depend>
+  <run_depend>turtlesim</run_depend>
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>cl_tf</run_depend>
+</package>
